@@ -66,13 +66,13 @@ export function QRToursSection() {
               src={activeTour.qrImage}
               alt={`${activeTour.titleEn} QR code`}
               className={styles.qrImage}
-              placeholderLabel={`${activeTour.titleEn} QR pending`}
+              placeholderLabel="QR code coming soon"
             />
           </div>
 
           <p className={styles.scanLabel}>SCAN TO EXPLORE</p>
           <a className={styles.mobileOpen} href={activeTour.qrDestinationUrl}>
-            OPEN TOUR
+            OPEN TOUR ↗
           </a>
         </article>
       </div>

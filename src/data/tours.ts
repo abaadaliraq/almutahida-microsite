@@ -93,11 +93,11 @@ const tourGalleryImages: Record<(typeof matterportTours)[number]["slug"], string
 export const tours: Tour[] = matterportTours.map((tour) => ({
   ...tour,
   matterportUrl: `https://my.matterport.com/show/?m=${tour.matterportModelId}`,
-  qrDestinationUrl: `https://my.matterport.com/show/?m=${tour.matterportModelId}`,
+  qrDestinationUrl: `/tours/${tour.slug}`,
   coverImage: tourAssetPath(tour.slug, "cover.jpg"),
   posterImage: tourAssetPath(tour.slug, "poster.jpg"),
   video: tourAssetPath(tour.slug, "video.mp4"),
-  qrImage: tourAssetPath(tour.slug, "qr.png"),
+  qrImage: `/qr/${tour.slug}.png`,
   gallery: tourGalleryImages[tour.slug].map((filename) => tourAssetPath(tour.slug, filename)),
   highlights: [],
   facts: [],

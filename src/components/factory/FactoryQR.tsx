@@ -47,7 +47,7 @@ export function FactoryQR({ tour }: { tour: Tour }) {
         {qrAvailable ? (
           <img className={styles.qrImage} src={tour.qrImage} alt={`${tour.titleEn} QR code`} />
         ) : (
-          <span className={styles.qrMissing}>{tour.titleEn} QR pending</span>
+          <span className={styles.qrMissing}>QR code coming soon</span>
         )}
         <a className={styles.openTourLink} href={tour.qrDestinationUrl}>
           OPEN TOUR
