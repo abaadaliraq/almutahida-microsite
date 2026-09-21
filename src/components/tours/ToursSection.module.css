@@ -1,0 +1,80 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  padding: clamp(1.1rem, 2.4vw, 2.4rem) clamp(1rem, 4vw, 4rem);
+  background:
+    radial-gradient(circle at 18% 22%, rgb(24 47 89 / 28%), transparent 28rem),
+    radial-gradient(circle at 82% 64%, rgb(72 143 87 / 15%), transparent 26rem),
+    linear-gradient(180deg, var(--almutahida-black), rgb(9 13 18) 52%, var(--almutahida-black));
+  color: var(--almutahida-offwhite);
+}
+
+.section::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(90deg, rgb(243 244 241 / 5%) 1px, transparent 1px),
+    linear-gradient(180deg, rgb(243 244 241 / 4%) 1px, transparent 1px);
+  background-size: 8rem 8rem;
+  mask-image: linear-gradient(180deg, transparent, black 24%, black 76%, transparent);
+}
+
+.headingBlock {
+  position: relative;
+  z-index: 2;
+  width: min(94rem, 100%);
+  margin: 0 auto clamp(0.65rem, 1.2vw, 1rem);
+  animation: sectionReveal 720ms ease both;
+}
+
+.kicker {
+  margin: 0 0 0.55rem;
+  color: var(--almutahida-green);
+  font-size: clamp(0.74rem, 0.9vw, 0.86rem);
+  font-weight: 850;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 4.4rem);
+  font-weight: 850;
+  letter-spacing: 0;
+  line-height: 0.94;
+}
+
+.headingAr {
+  margin: 0.45rem 0 0;
+  color: rgb(243 244 241 / 72%);
+  font-size: clamp(1.1rem, 1.65vw, 1.55rem);
+  font-weight: 750;
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 740px) {
+  .section {
+    min-height: 46rem;
+    padding-inline: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .headingBlock {
+    animation: none;
+  }
+}

@@ -1,0 +1,249 @@
+.deckStage {
+  position: relative;
+  z-index: 1;
+  width: min(94rem, 100%);
+  height: clamp(17rem, 34vw, 26rem);
+  margin-inline: auto;
+  perspective: 1400px;
+  perspective-origin: 50% 42%;
+  touch-action: pan-y;
+}
+
+.depthLine {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: 11%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(72 143 87 / 42%), rgb(24 47 89 / 46%), transparent);
+  transform: rotateX(62deg);
+}
+
+.card {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  width: clamp(12rem, 34vw, 30rem);
+  height: clamp(14rem, 28vw, 22rem);
+  overflow: hidden;
+  border: 1px solid rgb(243 244 241 / 14%);
+  border-radius: 0.45rem;
+  background: rgb(255 255 255 / 4%);
+  color: var(--almutahida-offwhite);
+  padding: 0;
+  text-align: left;
+  transform-style: preserve-3d;
+  transition:
+    transform 780ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 520ms ease,
+    filter 520ms ease,
+    border-color 360ms ease;
+  will-change: transform, opacity;
+}
+
+.positionActive {
+  z-index: 5;
+  opacity: 1;
+  filter: brightness(1);
+  transform: translate3d(-50%, 0, 140px) rotateY(0deg) scale(1);
+}
+
+.positionLeft {
+  z-index: 4;
+  opacity: 0.82;
+  filter: brightness(0.78);
+  transform: translate3d(-112%, 2.2rem, 20px) rotateY(14deg) scale(0.82);
+}
+
+.positionRight {
+  z-index: 4;
+  opacity: 0.82;
+  filter: brightness(0.78);
+  transform: translate3d(12%, 2.2rem, 20px) rotateY(-14deg) scale(0.82);
+}
+
+.positionFarLeft {
+  z-index: 2;
+  opacity: 0.58;
+  filter: brightness(0.62);
+  transform: translate3d(-166%, 4.6rem, -90px) rotateY(24deg) scale(0.68);
+}
+
+.positionFarRight {
+  z-index: 2;
+  opacity: 0.58;
+  filter: brightness(0.62);
+  transform: translate3d(66%, 4.6rem, -90px) rotateY(-24deg) scale(0.68);
+}
+
+.cardImage,
+.cardShade,
+.cardEdge {
+  position: absolute;
+  inset: 0;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 720ms ease;
+}
+
+.cardShade {
+  background:
+    linear-gradient(0deg, rgb(8 10 13 / 86%) 0%, rgb(8 10 13 / 20%) 62%),
+    linear-gradient(90deg, rgb(8 10 13 / 50%), transparent);
+}
+
+.cardEdge {
+  inset: auto 0 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--almutahida-green), var(--almutahida-navy), transparent);
+  transform-origin: left;
+  transition: transform 500ms ease;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1rem, 2vw, 1.55rem);
+}
+
+.cardNumber {
+  color: var(--almutahida-green);
+  font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+  font-weight: 850;
+  letter-spacing: 0.16em;
+}
+
+.cardTitle,
+.cardTitleAr,
+.exploreCue span {
+  display: block;
+}
+
+.cardTitle {
+  max-width: 10ch;
+  font-size: clamp(1.5rem, 2.8vw, 3.2rem);
+  font-weight: 850;
+  line-height: 0.92;
+}
+
+.cardTitleAr {
+  margin-top: 0.5rem;
+  color: rgb(243 244 241 / 72%);
+  font-size: clamp(1.08rem, 1.6vw, 1.55rem);
+  font-weight: 760;
+}
+
+.exploreCue {
+  display: inline-grid;
+  width: fit-content;
+  min-width: 9rem;
+  min-height: 3.5rem;
+  margin-top: clamp(1rem, 1.4vw, 1.4rem);
+  place-items: center start;
+  border: 1px solid rgb(243 244 241 / 22%);
+  border-left: 3px solid var(--almutahida-green);
+  background: rgb(8 10 13 / 48%);
+  padding: 0.55rem 0.9rem;
+  backdrop-filter: blur(14px);
+}
+
+.exploreCue span:first-child {
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+}
+
+.exploreCue span:last-child {
+  color: rgb(243 244 241 / 66%);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.indicator {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: fit-content;
+  margin: clamp(0.4rem, 0.8vw, 0.7rem) auto 0;
+  gap: 0.45rem;
+}
+
+.indicatorButton,
+.activeIndicator {
+  min-width: 3.1rem;
+  min-height: 2.1rem;
+  border: 0;
+  border-bottom: 2px solid rgb(243 244 241 / 18%);
+  background: transparent;
+  color: rgb(243 244 241 / 46%);
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.activeIndicator {
+  border-color: var(--almutahida-green);
+  color: var(--almutahida-green);
+}
+
+@media (hover: hover) {
+  .card:hover .cardImage {
+    transform: scale(1.04);
+  }
+
+  .card:hover .cardEdge {
+    transform: scaleX(1.18);
+  }
+}
+
+@media (max-width: 760px) {
+  .deckStage {
+    height: 28rem;
+    overflow: hidden;
+    margin-inline: -1rem;
+  }
+
+  .card {
+    width: min(78vw, 24rem);
+    height: 24rem;
+  }
+
+  .positionActive {
+    transform: translate3d(-50%, 0, 90px) rotateY(0deg) scale(1);
+  }
+
+  .positionLeft {
+    opacity: 0.72;
+    transform: translate3d(-110%, 2rem, -30px) rotateY(14deg) scale(0.76);
+  }
+
+  .positionRight {
+    opacity: 0.72;
+    transform: translate3d(10%, 2rem, -30px) rotateY(-14deg) scale(0.76);
+  }
+
+  .positionFarLeft,
+  .positionFarRight {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .cardTitle {
+    font-size: clamp(2.05rem, 10vw, 3.6rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cardImage,
+  .cardEdge {
+    transition: none;
+  }
+}

@@ -1,0 +1,40 @@
+.section {
+  display: grid;
+  min-height: 24rem;
+  place-items: center;
+  padding: clamp(4rem, 8vw, 7rem) 1.25rem;
+  border-top: 1px solid rgb(243 244 241 / 10%);
+  background:
+    radial-gradient(circle at 50% 0%, rgb(72 143 87 / 12%), transparent 24rem),
+    var(--almutahida-black);
+  color: var(--almutahida-offwhite);
+  text-align: center;
+}
+
+.logo {
+  width: clamp(5.5rem, 9vw, 8rem);
+  height: clamp(5.5rem, 9vw, 8rem);
+  object-fit: contain;
+}
+
+.brand {
+  margin: 1.75rem 0 0;
+  color: rgb(243 244 241 / 60%);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+}
+
+.title {
+  margin: 0.65rem 0 0;
+  font-size: clamp(1.9rem, 4vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.line {
+  margin: 1rem 0 0;
+  color: var(--almutahida-green);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 700;
+}
